@@ -33,23 +33,26 @@ const App = () => {
   return (
     <div className="Textbook">
       {
-        // 1. [] 이거는 왜 굳이 있는거?
+        // 1. [] 이거는 왜 굳이 있는거? 
+        //   내 경우 landingCourses의 init State가 []니까 필요 없다.
         // (landingCourses || []).map(coursesObj => {
 
-        /* 2. 이렇게하면 console.log에는 잘 뜨는데 왜 브라우저에는 안 뜨는지?
+        /* 2. 이렇게하면 console.log에는 잘 뜨는데 왜 브라우저에는 안 뜨는지?*/
+        // nested
         landingCourses.map(coursesObj => {
+          return <div>{
           coursesObj.courses.map((elem) => {
-            console.log(elem.title)
-            return <div> {elem.title}</div>
-          }
-        )
-      })}
-      */
+            return <div> {elem.title} </div>
+          })
+        } </div>
+      })
 
+      /*
       // 3. key가 없어도 값이 동일하던데 왜 굳이 key가 필요한지
       (courses || []).map(coursesObj => {
         return <div key={coursesObj.category_id}> {coursesObj.courses[0].title}</div>
       })
+      */
     }
     </div>
   )
